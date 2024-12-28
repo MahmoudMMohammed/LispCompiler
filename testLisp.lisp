@@ -54,8 +54,6 @@ and a tab")
 (format t "Multiply: ~a~%" (apply-lambda multiply 5 3))
 (format t "Factorial of 5: ~a~%" (factorial 5))
 
-;; 😑😑
-
 ;; Display strings
 (defun display-special-strings ()
   "Displays strings with various escape characters."
@@ -66,5 +64,6 @@ and a tab")
 ;; Test string display
 (display-special-strings)
 
+;; 你好
+;; 😑😑
 ;; End of file
-
