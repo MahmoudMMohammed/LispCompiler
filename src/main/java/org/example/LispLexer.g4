@@ -29,7 +29,7 @@ fragment LETTER: 'a'..'z' | 'A'..'Z'; // Alphabetic characters (lowercase and up
 fragment SYMBOL_CHAR: [!#$%&'*+,-./:;<=>?@^`|~]; // Special characters for symbols
 fragment ESC_SEQ: '\\' [btnfr"'\\];
 
-KEYWORDS
+KEYWORD
     : '&allow-other-keys'
     | '&aux'
     | '&body'

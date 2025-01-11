@@ -18,7 +18,7 @@ public class LispLexer extends Lexer {
 		new PredictionContextCache();
 	public static final int
 		LINE_COMMENT=1, COMMENT=2, WHITESPACE=3, LPAREN=4, RPAREN=5, QUOTE=6, 
-		BACKSLASH=7, STRING=8, NUMBER=9, OPERATOR=10, UNDERSCORE=11, KEYWORDS=12, 
+		BACKSLASH=7, STRING=8, NUMBER=9, OPERATOR=10, UNDERSCORE=11, KEYWORD=12, 
 		IDENTIFIER=13, SYMBOL=14, BOOLEAN=15, ERROR=16;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
@@ -32,7 +32,7 @@ public class LispLexer extends Lexer {
 		return new String[] {
 			"LINE_COMMENT", "COMMENT", "WHITESPACE", "LPAREN", "RPAREN", "QUOTE", 
 			"BACKSLASH", "STRING", "NUMBER", "OPERATOR", "UNDERSCORE", "DIGIT", "LETTER", 
-			"SYMBOL_CHAR", "ESC_SEQ", "KEYWORDS", "IDENTIFIER", "SYMBOL", "BOOLEAN", 
+			"SYMBOL_CHAR", "ESC_SEQ", "KEYWORD", "IDENTIFIER", "SYMBOL", "BOOLEAN", 
 			"ERROR"
 		};
 	}
@@ -48,7 +48,7 @@ public class LispLexer extends Lexer {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "LINE_COMMENT", "COMMENT", "WHITESPACE", "LPAREN", "RPAREN", "QUOTE", 
-			"BACKSLASH", "STRING", "NUMBER", "OPERATOR", "UNDERSCORE", "KEYWORDS", 
+			"BACKSLASH", "STRING", "NUMBER", "OPERATOR", "UNDERSCORE", "KEYWORD", 
 			"IDENTIFIER", "SYMBOL", "BOOLEAN", "ERROR"
 		};
 	}
