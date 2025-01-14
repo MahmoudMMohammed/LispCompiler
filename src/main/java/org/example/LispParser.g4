@@ -11,7 +11,7 @@ program: s_expr* EOF;
 s_expr: atom | list;
 
 // An atom is a number, symbol, string, or quoted expression
-atom: NUMBER | SYMBOL | STRING | QUOTE s_expr;
+atom: NUMBER | SYMBOL | STRING | MULTIPLICATION | STAR2 | STAR3 | QUOTE s_expr;
 
 // A list is a sequence of s-expressions enclosed in parentheses
 list: LPAREN (special_form | function_call | arithmetic_expr | comparison_expr | logical_expr | list_operation | format_expr | other_expressions | s_expr*) RPAREN;

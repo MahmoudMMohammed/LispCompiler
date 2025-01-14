@@ -155,9 +155,39 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDirective(LispParser.DirectiveContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#other_expr}.
+	 * Visit a parse tree produced by {@link LispParser#other_expressions}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOther_expr(LispParser.Other_exprContext ctx);
+	T visitOther_expressions(LispParser.Other_expressionsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#print_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrint_expr(LispParser.Print_exprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#eval_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEval_expr(LispParser.Eval_exprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#load_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoad_expr(LispParser.Load_exprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#read_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRead_expr(LispParser.Read_exprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#other_special_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOther_special_expr(LispParser.Other_special_exprContext ctx);
 }

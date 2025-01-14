@@ -248,13 +248,63 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitDirective(LispParser.DirectiveContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#other_expr}.
+	 * Enter a parse tree produced by {@link LispParser#other_expressions}.
 	 * @param ctx the parse tree
 	 */
-	void enterOther_expr(LispParser.Other_exprContext ctx);
+	void enterOther_expressions(LispParser.Other_expressionsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#other_expr}.
+	 * Exit a parse tree produced by {@link LispParser#other_expressions}.
 	 * @param ctx the parse tree
 	 */
-	void exitOther_expr(LispParser.Other_exprContext ctx);
+	void exitOther_expressions(LispParser.Other_expressionsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#print_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrint_expr(LispParser.Print_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#print_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrint_expr(LispParser.Print_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#eval_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterEval_expr(LispParser.Eval_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#eval_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitEval_expr(LispParser.Eval_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#load_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoad_expr(LispParser.Load_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#load_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoad_expr(LispParser.Load_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#read_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRead_expr(LispParser.Read_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#read_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRead_expr(LispParser.Read_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#other_special_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOther_special_expr(LispParser.Other_special_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#other_special_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOther_special_expr(LispParser.Other_special_exprContext ctx);
 }
