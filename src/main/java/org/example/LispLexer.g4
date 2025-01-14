@@ -30,7 +30,7 @@ DIRECTIVE_PLURALIZE: '~P';      // Pluralize
 DIRECTIVE_CHARACTER: '~C';      // Character representation
 DIRECTIVE_CONDITIONAL: '~?';    // Conditional expression
 
-STRING_WITH_DIRECTIVES: '"' ( ESC_SEQ | ~('\\'|'"') )* '"';
+STRING_WITH_DIRECTIVES: '"' ( '\\' . | ~["\\] )* '~' [SD~&<>ATRFEGPC?]* ( '\\' . | ~["\\] )* '"';
 STRING: '"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 
 NUMBER: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
