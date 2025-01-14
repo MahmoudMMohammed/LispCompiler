@@ -88,6 +88,16 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitDefun_form(LispParser.Defun_formContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LispParser#defparameter_form}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefparameter_form(LispParser.Defparameter_formContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#defparameter_form}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefparameter_form(LispParser.Defparameter_formContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LispParser#let_form}.
 	 * @param ctx the parse tree
 	 */
@@ -138,6 +148,16 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitSetq_form(LispParser.Setq_formContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LispParser#funcall_form}.
+	 * @param ctx the parse tree
+	 */
+	void enterFuncall_form(LispParser.Funcall_formContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#funcall_form}.
+	 * @param ctx the parse tree
+	 */
+	void exitFuncall_form(LispParser.Funcall_formContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LispParser#arithmetic_expr}.
 	 * @param ctx the parse tree
 	 */
@@ -177,6 +197,56 @@ public interface LispParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitList_operation(LispParser.List_operationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#format_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormat_expr(LispParser.Format_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#format_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormat_expr(LispParser.Format_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#t_or_nil}.
+	 * @param ctx the parse tree
+	 */
+	void enterT_or_nil(LispParser.T_or_nilContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#t_or_nil}.
+	 * @param ctx the parse tree
+	 */
+	void exitT_or_nil(LispParser.T_or_nilContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#stream}.
+	 * @param ctx the parse tree
+	 */
+	void enterStream(LispParser.StreamContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#stream}.
+	 * @param ctx the parse tree
+	 */
+	void exitStream(LispParser.StreamContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#format_string}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormat_string(LispParser.Format_stringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#format_string}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormat_string(LispParser.Format_stringContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LispParser#directive}.
+	 * @param ctx the parse tree
+	 */
+	void enterDirective(LispParser.DirectiveContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LispParser#directive}.
+	 * @param ctx the parse tree
+	 */
+	void exitDirective(LispParser.DirectiveContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LispParser#other_expr}.
 	 * @param ctx the parse tree

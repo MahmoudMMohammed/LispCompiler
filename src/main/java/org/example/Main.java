@@ -34,7 +34,7 @@ public class Main {
         for (int i = 0; i < tokens.getTokens().size(); i++) {
             Token token = tokens.get(i);
             String tokenType = LispLexer.VOCABULARY.getSymbolicName(token.getType());
-            System.out.printf("Index: %d \t, Line: %d \t, Column: %d \t, Type: %s \t, Value: %s%n",
+            System.out.printf("Index: %d \t, Line: %d \t, Column: %d \t, Type: %s \t\t, Value: %s%n",
                     i, token.getLine(), token.getCharPositionInLine(), tokenType, token.getText());
         }
     }

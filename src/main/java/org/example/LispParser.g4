@@ -14,7 +14,7 @@ s_expr: atom | list;
 atom: NUMBER | SYMBOL | STRING | QUOTE s_expr;
 
 // A list is a sequence of s-expressions enclosed in parentheses
-list: LPAREN (special_form | function_call | arithmetic_expr | comparison_expr | logical_expr | list_operation | other_expr | s_expr*) RPAREN;
+list: LPAREN (special_form | function_call | arithmetic_expr | comparison_expr | logical_expr | list_operation | format_expr | other_expressions | s_expr*) RPAREN;
 
 // Function call: (function-name arg1 arg2 ...)
 function_call: SYMBOL s_expr*;
@@ -67,5 +67,74 @@ logical_expr: (AND | OR | NOT) s_expr+;
 // List operations: (car list), (cdr list), (cons x y), etc.
 list_operation: (CAR | CDR | CONS | LIST | APPEND | LENGTH | REVERSE) s_expr+;
 
+format_expr
+    : FORMAT (t_or_nil | stream) format_string (s_expr)* // Handles "format" with arguments
+    ;
+
+t_or_nil
+    : T           // Output to terminal
+    | NIL           // Return a formatted string
+    ;
+
+stream
+    : SYMBOL        // A stream (e.g., file, terminal, or other destination)
+    ;
+
+format_string
+    : STRING_WITH_DIRECTIVES (directive)* // Allows string followed by parsed directives
+    ;
+
+directive
+    : DIRECTIVE_NEWLINE         // Newline
+    | DIRECTIVE_OBJECT         // General Lisp object
+    | DIRECTIVE_INTEGER         // Integer
+    | DIRECTIVE_LITERAL_TILDE         // Literal `~`
+    | DIRECTIVE_COND_NEWLINE         // Conditional newline
+    | DIRECTIVE_JUSTIFY_START         // Justification start
+    | DIRECTIVE_JUSTIFY_END         // Justification end
+    | DIRECTIVE_AESTHETIC         // Aesthetic representation
+    | DIRECTIVE_TABULATION         // Tabulation
+    | DIRECTIVE_ROMAN         // Roman numeral representation
+    | DIRECTIVE_FIXED        // Fixed-point format
+    | DIRECTIVE_EXPONENTIAL         // Exponential format
+    | DIRECTIVE_GENERAL         // General format (either ~F or ~E)
+    | DIRECTIVE_PLURALIZE         // Pluralize ("s" for non-singular)
+    | DIRECTIVE_CHARACTER        // Character representation
+    | DIRECTIVE_CONDITIONAL     // Conditional expression
+    | DIRECTIVE_COND_NEWLINE    // Conditional newline
+    ;
+
+
 // Other expressions: (print x), (eval s-expr), etc.
-other_expr: (PRINT | EVAL | LOAD | READ | FORMAT) s_expr+;
+other_expressions
+    : print_expr
+    | eval_expr
+    | load_expr
+    | read_expr
+    | other_special_expr
+    ;
+
+// Rule for print expression
+print_expr
+    : PRINT s_expr+
+    ;
+
+// Rule for eval expression
+eval_expr
+    : EVAL s_expr
+    ;
+
+// Rule for load expression
+load_expr
+    : LOAD STRING_WITH_DIRECTIVES
+    ;
+
+// Rule for read expression
+read_expr
+    : READ
+    ;
+
+// Rule for other special expressions (e.g., user-defined or format-like)
+other_special_expr
+    : SYMBOL s_expr*
+    ;

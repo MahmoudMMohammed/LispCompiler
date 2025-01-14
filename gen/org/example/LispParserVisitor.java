@@ -59,6 +59,12 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefun_form(LispParser.Defun_formContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LispParser#defparameter_form}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefparameter_form(LispParser.Defparameter_formContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LispParser#let_form}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -89,6 +95,12 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSetq_form(LispParser.Setq_formContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LispParser#funcall_form}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFuncall_form(LispParser.Funcall_formContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LispParser#arithmetic_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -112,6 +124,36 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitList_operation(LispParser.List_operationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#format_expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormat_expr(LispParser.Format_exprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#t_or_nil}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitT_or_nil(LispParser.T_or_nilContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#stream}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStream(LispParser.StreamContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#format_string}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormat_string(LispParser.Format_stringContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LispParser#directive}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDirective(LispParser.DirectiveContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LispParser#other_expr}.
 	 * @param ctx the parse tree

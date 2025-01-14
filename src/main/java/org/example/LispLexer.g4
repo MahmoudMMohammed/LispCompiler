@@ -4,6 +4,7 @@ lexer grammar LispLexer;
 LINE_COMMENT: ';' ~[\r\n]* -> skip;
 COMMENT: ';;' ~[\r\n]* -> skip;
 WHITESPACE: [ \t\r\n]+ -> skip;
+NEW_LINE: [\r\n] -> skip;
 
 // Specific tokens
 LPAREN: '(';
@@ -11,6 +12,25 @@ RPAREN: ')';
 QUOTE: '\'';
 BACKSLASH: '\\';
 
+// Directives
+DIRECTIVE_NEWLINE: '~%';        // Newline
+DIRECTIVE_OBJECT: '~S';         // General Lisp object
+DIRECTIVE_INTEGER: '~D';        // Integer
+DIRECTIVE_LITERAL_TILDE: '~~';  // Literal `~`
+DIRECTIVE_COND_NEWLINE: '~&';   // Conditional newline
+DIRECTIVE_JUSTIFY_START: '~<';  // Justification start
+DIRECTIVE_JUSTIFY_END: '~>';    // Justification end
+DIRECTIVE_AESTHETIC: '~A';      // Aesthetic representation
+DIRECTIVE_TABULATION: '~T';     // Tabulation
+DIRECTIVE_ROMAN: '~R';          // Roman numeral representation
+DIRECTIVE_FIXED: '~F';          // Fixed-point format
+DIRECTIVE_EXPONENTIAL: '~E';    // Exponential format
+DIRECTIVE_GENERAL: '~G';        // General format
+DIRECTIVE_PLURALIZE: '~P';      // Pluralize
+DIRECTIVE_CHARACTER: '~C';      // Character representation
+DIRECTIVE_CONDITIONAL: '~?';    // Conditional expression
+
+STRING_WITH_DIRECTIVES: '"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 STRING: '"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 
 NUMBER: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
@@ -134,6 +154,7 @@ NEXT_METHOD_P: 'next_method_p';
 WHEN: 'when';
 UNLESS: 'unless';
 NIL: 'nil';
+T: 't';
 PUSH: 'push';
 POP: 'pop';
 FACT: 'fact';
