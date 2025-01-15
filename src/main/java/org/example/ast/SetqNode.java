@@ -6,7 +6,7 @@ public class SetqNode extends ASTNode {
     public String variable;
     public ASTNode value;
 
-    public SetqNode(String variable, ASTNode value) {
+    public SetqNode() {
         this.variable = variable;
         this.value = value;
     }
