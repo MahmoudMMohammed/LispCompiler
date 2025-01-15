@@ -47,11 +47,12 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSpecial_form(LispParser.Special_formContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#if_form}.
+	 * Visit a parse tree produced by the {@code IfSpecialForm}
+	 * labeled alternative in {@link LispParser#if_form}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIf_form(LispParser.If_formContext ctx);
+	T visitIfSpecialForm(LispParser.IfSpecialFormContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LispParser#defun_form}.
 	 * @param ctx the parse tree
@@ -101,35 +102,40 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFuncall_form(LispParser.Funcall_formContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#arithmetic_expr}.
+	 * Visit a parse tree produced by the {@code ArithmeticExpression}
+	 * labeled alternative in {@link LispParser#arithmetic_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArithmetic_expr(LispParser.Arithmetic_exprContext ctx);
+	T visitArithmeticExpression(LispParser.ArithmeticExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#comparison_expr}.
+	 * Visit a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link LispParser#comparison_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparison_expr(LispParser.Comparison_exprContext ctx);
+	T visitComparisonExpression(LispParser.ComparisonExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#logical_expr}.
+	 * Visit a parse tree produced by the {@code LogicalExpression}
+	 * labeled alternative in {@link LispParser#logical_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLogical_expr(LispParser.Logical_exprContext ctx);
+	T visitLogicalExpression(LispParser.LogicalExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#list_operation}.
+	 * Visit a parse tree produced by the {@code ListOperation}
+	 * labeled alternative in {@link LispParser#list_operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitList_operation(LispParser.List_operationContext ctx);
+	T visitListOperation(LispParser.ListOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#format_expr}.
+	 * Visit a parse tree produced by the {@code FormatExpression}
+	 * labeled alternative in {@link LispParser#format_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFormat_expr(LispParser.Format_exprContext ctx);
+	T visitFormatExpression(LispParser.FormatExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LispParser#t_or_nil}.
 	 * @param ctx the parse tree
@@ -167,27 +173,24 @@ public interface LispParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrint_expr(LispParser.Print_exprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#eval_expr}.
+	 * Visit a parse tree produced by the {@code EvalExpression}
+	 * labeled alternative in {@link LispParser#eval_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEval_expr(LispParser.Eval_exprContext ctx);
+	T visitEvalExpression(LispParser.EvalExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#load_expr}.
+	 * Visit a parse tree produced by the {@code LoadExpression}
+	 * labeled alternative in {@link LispParser#load_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLoad_expr(LispParser.Load_exprContext ctx);
+	T visitLoadExpression(LispParser.LoadExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LispParser#read_expr}.
+	 * Visit a parse tree produced by the {@code ReadExpression}
+	 * labeled alternative in {@link LispParser#read_expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRead_expr(LispParser.Read_exprContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LispParser#other_special_expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOther_special_expr(LispParser.Other_special_exprContext ctx);
+	T visitReadExpression(LispParser.ReadExpressionContext ctx);
 }

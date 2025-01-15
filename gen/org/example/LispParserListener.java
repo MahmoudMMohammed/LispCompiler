@@ -68,15 +68,17 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitSpecial_form(LispParser.Special_formContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#if_form}.
+	 * Enter a parse tree produced by the {@code IfSpecialForm}
+	 * labeled alternative in {@link LispParser#if_form}.
 	 * @param ctx the parse tree
 	 */
-	void enterIf_form(LispParser.If_formContext ctx);
+	void enterIfSpecialForm(LispParser.IfSpecialFormContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#if_form}.
+	 * Exit a parse tree produced by the {@code IfSpecialForm}
+	 * labeled alternative in {@link LispParser#if_form}.
 	 * @param ctx the parse tree
 	 */
-	void exitIf_form(LispParser.If_formContext ctx);
+	void exitIfSpecialForm(LispParser.IfSpecialFormContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LispParser#defun_form}.
 	 * @param ctx the parse tree
@@ -158,55 +160,65 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitFuncall_form(LispParser.Funcall_formContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#arithmetic_expr}.
+	 * Enter a parse tree produced by the {@code ArithmeticExpression}
+	 * labeled alternative in {@link LispParser#arithmetic_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterArithmetic_expr(LispParser.Arithmetic_exprContext ctx);
+	void enterArithmeticExpression(LispParser.ArithmeticExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#arithmetic_expr}.
+	 * Exit a parse tree produced by the {@code ArithmeticExpression}
+	 * labeled alternative in {@link LispParser#arithmetic_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitArithmetic_expr(LispParser.Arithmetic_exprContext ctx);
+	void exitArithmeticExpression(LispParser.ArithmeticExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#comparison_expr}.
+	 * Enter a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link LispParser#comparison_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterComparison_expr(LispParser.Comparison_exprContext ctx);
+	void enterComparisonExpression(LispParser.ComparisonExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#comparison_expr}.
+	 * Exit a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link LispParser#comparison_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitComparison_expr(LispParser.Comparison_exprContext ctx);
+	void exitComparisonExpression(LispParser.ComparisonExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#logical_expr}.
+	 * Enter a parse tree produced by the {@code LogicalExpression}
+	 * labeled alternative in {@link LispParser#logical_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogical_expr(LispParser.Logical_exprContext ctx);
+	void enterLogicalExpression(LispParser.LogicalExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#logical_expr}.
+	 * Exit a parse tree produced by the {@code LogicalExpression}
+	 * labeled alternative in {@link LispParser#logical_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogical_expr(LispParser.Logical_exprContext ctx);
+	void exitLogicalExpression(LispParser.LogicalExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#list_operation}.
+	 * Enter a parse tree produced by the {@code ListOperation}
+	 * labeled alternative in {@link LispParser#list_operation}.
 	 * @param ctx the parse tree
 	 */
-	void enterList_operation(LispParser.List_operationContext ctx);
+	void enterListOperation(LispParser.ListOperationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#list_operation}.
+	 * Exit a parse tree produced by the {@code ListOperation}
+	 * labeled alternative in {@link LispParser#list_operation}.
 	 * @param ctx the parse tree
 	 */
-	void exitList_operation(LispParser.List_operationContext ctx);
+	void exitListOperation(LispParser.ListOperationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#format_expr}.
+	 * Enter a parse tree produced by the {@code FormatExpression}
+	 * labeled alternative in {@link LispParser#format_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormat_expr(LispParser.Format_exprContext ctx);
+	void enterFormatExpression(LispParser.FormatExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#format_expr}.
+	 * Exit a parse tree produced by the {@code FormatExpression}
+	 * labeled alternative in {@link LispParser#format_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormat_expr(LispParser.Format_exprContext ctx);
+	void exitFormatExpression(LispParser.FormatExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LispParser#t_or_nil}.
 	 * @param ctx the parse tree
@@ -268,43 +280,39 @@ public interface LispParserListener extends ParseTreeListener {
 	 */
 	void exitPrint_expr(LispParser.Print_exprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#eval_expr}.
+	 * Enter a parse tree produced by the {@code EvalExpression}
+	 * labeled alternative in {@link LispParser#eval_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterEval_expr(LispParser.Eval_exprContext ctx);
+	void enterEvalExpression(LispParser.EvalExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#eval_expr}.
+	 * Exit a parse tree produced by the {@code EvalExpression}
+	 * labeled alternative in {@link LispParser#eval_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitEval_expr(LispParser.Eval_exprContext ctx);
+	void exitEvalExpression(LispParser.EvalExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#load_expr}.
+	 * Enter a parse tree produced by the {@code LoadExpression}
+	 * labeled alternative in {@link LispParser#load_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterLoad_expr(LispParser.Load_exprContext ctx);
+	void enterLoadExpression(LispParser.LoadExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#load_expr}.
+	 * Exit a parse tree produced by the {@code LoadExpression}
+	 * labeled alternative in {@link LispParser#load_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitLoad_expr(LispParser.Load_exprContext ctx);
+	void exitLoadExpression(LispParser.LoadExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LispParser#read_expr}.
+	 * Enter a parse tree produced by the {@code ReadExpression}
+	 * labeled alternative in {@link LispParser#read_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterRead_expr(LispParser.Read_exprContext ctx);
+	void enterReadExpression(LispParser.ReadExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LispParser#read_expr}.
+	 * Exit a parse tree produced by the {@code ReadExpression}
+	 * labeled alternative in {@link LispParser#read_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitRead_expr(LispParser.Read_exprContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LispParser#other_special_expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterOther_special_expr(LispParser.Other_special_exprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LispParser#other_special_expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitOther_special_expr(LispParser.Other_special_exprContext ctx);
+	void exitReadExpression(LispParser.ReadExpressionContext ctx);
 }

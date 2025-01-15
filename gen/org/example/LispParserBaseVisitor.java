@@ -1,6 +1,7 @@
 // Generated from C:/Users/DELL/IdeaProjects/compilerProject/src/main/java/org/example/LispParser.g4 by ANTLR 4.13.2
 package org.example;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+import org.example.ast.ASTNode;
 
 /**
  * This class provides an empty implementation of {@link LispParserVisitor},
@@ -11,7 +12,7 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * operations with no return type.
  */
 @SuppressWarnings("CheckReturnValue")
-public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LispParserVisitor<T> {
+public abstract class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LispParserVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *
@@ -60,7 +61,7 @@ public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIf_form(LispParser.If_formContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIfSpecialForm(LispParser.IfSpecialFormContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -123,35 +124,35 @@ public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitArithmetic_expr(LispParser.Arithmetic_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitArithmeticExpression(LispParser.ArithmeticExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparison_expr(LispParser.Comparison_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitComparisonExpression(LispParser.ComparisonExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogical_expr(LispParser.Logical_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLogicalExpression(LispParser.LogicalExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitList_operation(LispParser.List_operationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitListOperation(LispParser.ListOperationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFormat_expr(LispParser.Format_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFormatExpression(LispParser.FormatExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -180,6 +181,9 @@ public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitDirective(LispParser.DirectiveContext ctx) { return visitChildren(ctx); }
+
+	public abstract ASTNode visitEval_expr(LispParser.Eval_exprContext ctx);
+
 	/**
 	 * {@inheritDoc}
 	 *
@@ -187,6 +191,17 @@ public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitOther_expressions(LispParser.Other_expressionsContext ctx) { return visitChildren(ctx); }
+
+	public abstract ASTNode visitIf_form(LispParser.If_formContext ctx);
+
+	public abstract ASTNode visitArithmetic_expr(LispParser.Arithmetic_exprContext ctx);
+
+	public abstract ASTNode visitComparison_expr(LispParser.Comparison_exprContext ctx);
+
+	public abstract ASTNode visitLogical_expr(LispParser.Logical_exprContext ctx);
+
+	public abstract ASTNode visitList_operation(LispParser.List_operationContext ctx);
+
 	/**
 	 * {@inheritDoc}
 	 *
@@ -200,26 +215,29 @@ public class LispParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEval_expr(LispParser.Eval_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEvalExpression(LispParser.EvalExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoad_expr(LispParser.Load_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoadExpression(LispParser.LoadExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRead_expr(LispParser.Read_exprContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitOther_special_expr(LispParser.Other_special_exprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitReadExpression(LispParser.ReadExpressionContext ctx) { return visitChildren(ctx); }
+
+	public abstract ASTNode visitLoad_expr(LispParser.Load_exprContext ctx);
+
+	public abstract ASTNode visitRead_expr(LispParser.Read_exprContext ctx);
+
+	public abstract ASTNode visitDefunForm(LispParser.Defun_formContext ctx);
+
+	public abstract ASTNode visitDefparameterForm(LispParser.Defparameter_formContext ctx);
+
+	public abstract ASTNode visitLetForm(LispParser.Let_formContext ctx);
 }
